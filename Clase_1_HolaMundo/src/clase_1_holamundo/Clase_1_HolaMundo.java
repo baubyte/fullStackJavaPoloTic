@@ -2,7 +2,7 @@ package clase_1_holamundo;
 
 /**
  *
- * @author Sammy Guergachi <sguergachi at gmail.com>
+ * @author Martin Pared Baez <paredbaez.martin@gmail.com>
  */
 public class Clase_1_HolaMundo {
 

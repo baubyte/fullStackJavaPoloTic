@@ -23,11 +23,13 @@ public class EjercIcioMatrices2A {
                 matrizNumeros[f][c] = 5;
             }
         }
+        //Mostramos la Matriz que se lleno con Numeros 5
         System.out.println("Los Datos Almacenado en la Matriz son:");
         for (int f = 0; f < 4; f++) {
             System.out.print("|");
             for (int c = 0; c < 5; c++) {
                 System.out.print(matrizNumeros[f][c]);
+              //Si No es la ultima columna agregamos un TAB para seprar
                 if (c != matrizNumeros[f].length - 1) {
                     System.out.print("\t");
                 }

@@ -1,7 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/** "Consigna del Ejercicio"
+ * En tres vectores diferentes se guardan los datos de temperaturas máximas y mínimas de 5 ciudades de 
+ * Misiones. En el primer vector se guardan los nombres de las ciudades, en el segundo las temperaturas 
+ * mínimas alcanzadas y en el tercero las temperaturas máximas alcanzadas en la última semana. Se necesita 
+ * un programa que permita la carga de las ciudades, sus temperaturas mínimas y máximas; además, deberá 
+ * poder informar por pantalla cual fue la ciudad con la temperatura más baja y cual con la temperatura más 
+ * alta (dando a conocer al mismo tiempo la cantidad de grados).
  */
 package ejerciciovectores1e;
 
@@ -48,10 +51,12 @@ public class EjercIcioVectores1E {
             //Ingresamos la Temperatura Minima
             System.out.println("Ingrese la Temperatura Minima para la Ciudad Ingresada");
             temperaturaMin[i] = ingresoDatos.nextDouble();
-            /**Solo en la Primer Vuelta del "FOR" guardamos la Temperatura Minima Ingresada
-             * Minima en la Variable menor para despues comparar
+            /**
+             * Solo en la Primer Vuelta del "FOR" guardamos la Temperatura
+             * Minima Ingresada Minima en la Variable menor para despues
+             * comparar
              */
-            if (i==0) {
+            if (i == 0) {
                 menor = temperaturaMin[i];
             }
             /**

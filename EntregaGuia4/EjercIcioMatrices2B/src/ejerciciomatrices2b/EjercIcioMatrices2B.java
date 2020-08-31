@@ -34,6 +34,7 @@ public class EjercIcioMatrices2B {
         System.out.println("*********************************************************************************************");
         System.out.println("*********************************************************************************************");
         System.out.println("                    Las Razas Ingresadas Fueron");
+        
         for (int f = 0; f < 3; f++) {
             System.out.print("|");
             for (int c = 0; c < 3; c++) {

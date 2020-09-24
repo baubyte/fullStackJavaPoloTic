@@ -1,6 +1,8 @@
 package GUI;
 
 import Logic.Controladora;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -51,7 +53,19 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        txtNum1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNum1KeyTyped(evt);
+            }
+        });
+
         lblMsgCopiado.setText("Ingrese el Segundo Numero");
+
+        txtNum2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNum2KeyTyped(evt);
+            }
+        });
 
         btnResta.setText("Resta");
         btnResta.addActionListener(new java.awt.event.ActionListener() {
@@ -155,63 +169,133 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaActionPerformed
-        double num1 = Double.parseDouble(txtNum1.getText());
-        double num2 = Double.parseDouble(txtNum2.getText());
+       /**Comprobamos que los Campos no estan Vacios*/
+        if (txtNum1.getText().equals("") || txtNum1.getText().equals("")) {
+            /**Aramamos el JOptionPane con el Mensaje*/
+            JOptionPane info = new JOptionPane("Algunos de los Campos estan Vacios");
+            info.setMessageType(JOptionPane.ERROR_MESSAGE);
+            /**Armamos el Dialogo*/
+            JDialog dialogo = info.createDialog("¡Ups!");
+            /**Hacemos Visible*/
+            dialogo.setVisible(true);
+            dialogo.setAlwaysOnTop(true);
 
-        double sumar = control.sumar(num1, num2);
+        } else {
+            double num1 = Double.parseDouble(txtNum1.getText());
+            double num2 = Double.parseDouble(txtNum2.getText());
 
-        txtResultado.setText(Double.toString(sumar));
+            double sumar = control.sumar(num1, num2);
+
+            txtResultado.setText(Double.toString(sumar));
+        }
 
     }//GEN-LAST:event_btnSumaActionPerformed
 
     private void btnRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaActionPerformed
+               /**Comprobamos que los Campos no estan Vacios*/
+        if (txtNum1.getText().equals("") || txtNum1.getText().equals("")) {
+            /**Aramamos el JOptionPane con el Mensaje*/
+            JOptionPane info = new JOptionPane("Algunos de los Campos estan Vacios");
+            info.setMessageType(JOptionPane.ERROR_MESSAGE);
+            /**Armamos el Dialogo*/
+            JDialog dialogo = info.createDialog("¡Ups!");
+            /**Hacemos Visible*/
+            dialogo.setVisible(true);
+            dialogo.setAlwaysOnTop(true);
+
+        } else {
         double num1 = Double.parseDouble(txtNum1.getText());
         double num2 = Double.parseDouble(txtNum2.getText());
 
         double restar = control.restar(num1, num2);
 
         txtResultado.setText(Double.toString(restar));
+        }
     }//GEN-LAST:event_btnRestaActionPerformed
 
     private void btnDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDividirActionPerformed
+              /**Comprobamos que los Campos no estan Vacios*/
+        if (txtNum1.getText().equals("") || txtNum1.getText().equals("")) {
+            /**Aramamos el JOptionPane con el Mensaje*/
+            JOptionPane info = new JOptionPane("Algunos de los Campos estan Vacios");
+            info.setMessageType(JOptionPane.ERROR_MESSAGE);
+            /**Armamos el Dialogo*/
+            JDialog dialogo = info.createDialog("¡Ups!");
+            /**Hacemos Visible*/
+            dialogo.setVisible(true);
+            dialogo.setAlwaysOnTop(true);
+
+        } else {
         double num1 = Double.parseDouble(txtNum1.getText());
         double num2 = Double.parseDouble(txtNum2.getText());
 
         double dividir = control.dividir(num1, num2);
 
         txtResultado.setText(Double.toString(dividir));
+        }
     }//GEN-LAST:event_btnDividirActionPerformed
 
     private void btnMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicarActionPerformed
+              /**Comprobamos que los Campos no estan Vacios*/
+        if (txtNum1.getText().equals("") || txtNum1.getText().equals("")) {
+            /**Aramamos el JOptionPane con el Mensaje*/
+            JOptionPane info = new JOptionPane("Algunos de los Campos estan Vacios");
+            info.setMessageType(JOptionPane.ERROR_MESSAGE);
+            /**Armamos el Dialogo*/
+            JDialog dialogo = info.createDialog("¡Ups!");
+            /**Hacemos Visible*/
+            dialogo.setVisible(true);
+            dialogo.setAlwaysOnTop(true);
+
+        } else {
         double num1 = Double.parseDouble(txtNum1.getText());
         double num2 = Double.parseDouble(txtNum2.getText());
 
         double multiplicar = control.multiplicar(num1, num2);
 
         txtResultado.setText(Double.toString(multiplicar));
+        }
     }//GEN-LAST:event_btnMultiplicarActionPerformed
+
+    private void txtNum1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNum1KeyTyped
+        /**
+         * Guardamos el evento *
+         */
+        char teclaChar = evt.getKeyChar();
+        /**
+         * Buscamos si es un numero
+         */
+        if (teclaChar < '0' || teclaChar > '9') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNum1KeyTyped
+
+    private void txtNum2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNum2KeyTyped
+        /**
+         * Guardamos el evento *
+         */
+        char teclaChar = evt.getKeyChar();
+        /**
+         * Buscamos si es un numero
+         */
+        if (teclaChar < '0' || teclaChar > '9') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNum2KeyTyped
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCopiar;
-    private javax.swing.JButton btnCopiar1;
     private javax.swing.JButton btnDividir;
     private javax.swing.JButton btnMultiplicar;
     private javax.swing.JButton btnResta;
     private javax.swing.JButton btnSuma;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel lblIngresar;
-    private javax.swing.JLabel lblIngresar1;
     private javax.swing.JLabel lblIngresar2;
     private javax.swing.JLabel lblMsgCopiado;
-    private javax.swing.JLabel lblTitulo;
-    private javax.swing.JLabel lblTitulo1;
     private javax.swing.JLabel lblTitulo2;
-    private javax.swing.JPanel pnlPrincipal;
-    private javax.swing.JPanel pnlPrincipal1;
     private javax.swing.JPanel pnlPrincipal2;
     private javax.swing.JTextField txtNum1;
     private javax.swing.JTextField txtNum2;

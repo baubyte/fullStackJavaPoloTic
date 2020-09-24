@@ -19,10 +19,17 @@ public class Controladora {
             nombres[posicionLibre] = agregarNombre;
             posicionLibre += 1;
         }
+        /*Opcion 2
+        if (agregarNombre[posicionLibre] == null ) {
+            nombres[posicionLibre] = agregarNombre;
+            posicionLibre += 1;
+        }
+         */
     }
 
     /**
      * Buscar Nombre en el Vector
+     *
      * @param buscarNombre
      * @return nombreEncontrado
      */

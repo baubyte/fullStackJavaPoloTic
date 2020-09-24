@@ -137,6 +137,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNum1">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNum1KeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblMsgCopiado">
           <Properties>
@@ -144,6 +147,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNum2">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNum2KeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnResta">
           <Properties>

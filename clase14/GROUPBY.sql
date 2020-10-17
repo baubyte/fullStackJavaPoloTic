@@ -1,0 +1,1 @@
+SELECT cliente.apellido FROM m_seguros.cliente GROUP BY cliente.apellido;

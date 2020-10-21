@@ -1,0 +1,1 @@
+SELECT AVG(cliente.sueldo) AS sueldo_promedio FROM m_seguros.cliente;

@@ -1,0 +1,1 @@
+SELECT COUNT(cliente.id_cliente) AS cant_clientes FROM m_seguros.cliente;

@@ -1,0 +1,1 @@
+SELECT SUM(cliente.sueldo) AS total_sueldos FROM m_seguros.cliente;

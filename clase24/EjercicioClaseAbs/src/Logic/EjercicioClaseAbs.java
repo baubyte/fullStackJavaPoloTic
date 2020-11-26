@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Logic;
 
 /**
@@ -16,6 +11,24 @@ public class EjercicioClaseAbs {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+
+        Mono mono = new Mono();
+        mono.soyAnimal();
+        System.out.println("-------------------------------------------------------------------------------------------");
+        Gorrion gorrion = new Gorrion();
+        gorrion.soyAnimal();
+        gorrion.cambiarPlumas();
+        gorrion.volar();
+        System.out.println("-------------------------------------------------------------------------------------------");
+        Pato pato = new Pato();
+        pato.soyAnimal();
+        pato.cambiarPlumas();
+        pato.volar();
+        System.out.println("-------------------------------------------------------------------------------------------");
+        Tiburon tiburon = new Tiburon();
+        tiburon.soyAnimal();
+        tiburon.nadar();
+        tiburon.respirarBajoAgua();
     }
-    
+
 }

@@ -1,5 +1,6 @@
 package Logic;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
@@ -13,7 +14,7 @@ import javax.persistence.OneToMany;
  * @author Pared Baez Martin Jose<paredbaez.martin@gmail.com>
  */
 @Entity
-public class Juego {
+public class Juego implements Serializable {
 
     //Atributos Principal
     @Id
@@ -23,6 +24,8 @@ public class Juego {
     List<Empleado> empleados;
     @OneToMany
     List<HorarioJuego> horarios;
+    @OneToMany(mappedBy = "juego")
+    List<Entrada> entradas;
     //Atributos Basicos
     @Basic
     String nombre;
@@ -42,15 +45,17 @@ public class Juego {
      * @param id
      * @param empleados
      * @param horarios
+     * @param entradas
      * @param nombre
      * @param descripcion
      * @param capacidad
      * @param edad_minima
      */
-    public Juego(int id, List<Empleado> empleados, List<HorarioJuego> horarios, String nombre, String descripcion, int capacidad, int edad_minima) {
+    public Juego(int id, List<Empleado> empleados, List<HorarioJuego> horarios, List<Entrada> entradas, String nombre, String descripcion, int capacidad, int edad_minima) {
         this.id = id;
         this.empleados = empleados;
         this.horarios = horarios;
+        this.entradas = entradas;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.capacidad = capacidad;
@@ -182,4 +187,23 @@ public class Juego {
     public void setEdad_minima(int edad_minima) {
         this.edad_minima = edad_minima;
     }
+
+    /**
+     * Obtenemos las Entradas del Juego
+     *
+     * @return entradas
+     */
+    public List<Entrada> getEntradas() {
+        return entradas;
+    }
+
+    /**
+     * Seteamos las Entradas del Juego
+     *
+     * @param entradas
+     */
+    public void setEntradas(List<Entrada> entradas) {
+        this.entradas = entradas;
+    }
+
 }

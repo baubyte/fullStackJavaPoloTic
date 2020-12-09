@@ -1,5 +1,6 @@
 package Logic;
 
+import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,9 +12,9 @@ import javax.persistence.Id;
  * @author Pared Baez Martin Jose<paredbaez.martin@gmail.com>
  */
 @Entity
-public class Rol {
+public class Rol implements Serializable {
 
-    //Atribustos Principales
+    //Atributos Principales
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     int id;

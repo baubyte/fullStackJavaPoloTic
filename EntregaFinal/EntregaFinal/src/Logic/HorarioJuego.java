@@ -1,5 +1,6 @@
 package Logic;
 
+import java.io.Serializable;
 import java.sql.Time;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
@@ -12,7 +13,7 @@ import javax.persistence.Id;
  * @author Pared Baez Martin Jose<paredbaez.martin@gmail.com>
  */
 @Entity
-public class HorarioJuego {
+public class HorarioJuego implements Serializable {
 
     //Atributos Principal
     @Id

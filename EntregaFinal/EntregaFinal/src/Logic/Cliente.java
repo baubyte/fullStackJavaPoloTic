@@ -1,22 +1,26 @@
 package Logic;
 
+import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author Pared Baez Martin Jose<paredbaez.martin@gmail.com>
  */
 @Entity
-public class Cliente {
-//Atribustos Principales
-
+public class Cliente implements Serializable {
+    //Atributos Principales
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     int id;
+    @OneToMany(mappedBy = "cliente")
+    List<Entrada> entradas;
     //Atributos Basicos
     @Basic
     String apellido;
@@ -34,13 +38,15 @@ public class Cliente {
      * Constructor con Atributos
      *
      * @param id
+     * @param entradas
      * @param apellido
      * @param nombre
      * @param nro_tarjeta
      * @param email
      */
-    public Cliente(int id, String apellido, String nombre, String email, String nro_tarjeta) {
+    public Cliente(int id, List<Entrada> entradas, String apellido, String nombre, String email, String nro_tarjeta) {
         this.id = id;
+        this.entradas = entradas;
         this.apellido = apellido;
         this.nombre = nombre;
         this.email = email;
@@ -136,4 +142,23 @@ public class Cliente {
     public void setNro_tarjeta(String nro_tarjeta) {
         this.nro_tarjeta = nro_tarjeta;
     }
+
+    /**
+     * Obtenemos las Entradas del Cliente
+     *
+     * @return entradas
+     */
+    public List<Entrada> getEntradas() {
+        return entradas;
+    }
+
+    /**
+     * Seteamos las Entradas del Cliente
+     *
+     * @param entradas
+     */
+    public void setEntradas(List<Entrada> entradas) {
+        this.entradas = entradas;
+    }
+
 }

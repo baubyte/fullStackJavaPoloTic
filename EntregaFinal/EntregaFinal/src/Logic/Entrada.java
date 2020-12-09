@@ -1,30 +1,32 @@
 package Logic;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
-import java.util.List;
+import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author Pared Baez Martin Jose<paredbaez.martin@gmail.com>
  */
 @Entity
-public class Entrada {
+public class Entrada implements Serializable {
 
-    //Atribustos Principales
+    //Atributos Principales
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     int id;
-    @OneToMany(mappedBy = "entrada")
-    List<Cliente> clientes;
-    @OneToMany(mappedBy = "entrada")
-    List<Juego> juegos;
+    @ManyToOne
+    Cliente cliente;
+    @ManyToOne
+    Juego juego;
     //Atributos Basicos
+    @Basic
     Date fecha;
     Time hora;
 
@@ -38,15 +40,15 @@ public class Entrada {
      * Constructor con Atributos
      *
      * @param id
-     * @param clientes
-     * @param juegos
+     * @param cliente
+     * @param juego
      * @param fecha
      * @param hora
      */
-    public Entrada(int id, List<Cliente> clientes, List<Juego> juegos, Date fecha, Time hora) {
+    public Entrada(int id, Cliente cliente, Juego juego, Date fecha, Time hora) {
         this.id = id;
-        this.clientes = clientes;
-        this.juegos = juegos;
+        this.cliente = cliente;
+        this.juego = juego;
         this.fecha = fecha;
         this.hora = hora;
     }
@@ -104,40 +106,37 @@ public class Entrada {
     public void setHora(Time hora) {
         this.hora = hora;
     }
-
     /**
      * Obtenemos los Clientes de la Entrada
      *
      * @return clientes
      */
-    public List<Cliente> getClientes() {
-        return clientes;
+    public Cliente getCliente() {
+        return cliente;
     }
-
     /**
      * Seteamos los Clientes de la Entrada
      *
-     * @param clientes
+     * @param cliente
      */
-    public void setClientes(List<Cliente> clientes) {
-        this.clientes = clientes;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
-
     /**
      * Obtenemos los Juegos de la Entrada
      *
-     * @return juegos
+     * @return juego
      */
-    public List<Juego> getJuegos() {
-        return juegos;
+    public Juego getJuego() {
+        return juego;
     }
     /**
      * Seteamos los Juegos de la Entrada
      *
-     * @param juegos
+     * @param juego
      */
-    public void setJuegos(List<Juego> juegos) {
-        this.juegos = juegos;
+    public void setJuego(Juego juego) {
+        this.juego = juego;
     }
 
 }

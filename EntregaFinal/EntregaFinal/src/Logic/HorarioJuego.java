@@ -18,12 +18,12 @@ public class HorarioJuego implements Serializable {
     //Atributos Principal
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    int id;
+    private int id;
     //Atributos Basicos
     @Basic
-    Time hora_desde;
-    Time hora_hasta;
-    String descripcion;
+    private Time hora_desde;
+    private Time hora_hasta;
+    private String descripcion;
 
     /**
      * Constructor Vacio

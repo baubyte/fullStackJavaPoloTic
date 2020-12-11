@@ -17,11 +17,11 @@ public class Rol implements Serializable {
     //Atributos Principales
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    int id;
+    private int id;
     //Atributos Basicos
     @Basic
-    String nombre;
-    String descripcion;
+    private String nombre;
+    private String descripcion;
 
     /**
      * Constructor Vacio

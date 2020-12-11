@@ -18,15 +18,15 @@ public class Cliente implements Serializable {
     //Atributos Principales
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    int id;
+    private int id;
     @OneToMany(mappedBy = "cliente")
-    List<Entrada> entradas;
+    private List<Entrada> entradas;
     //Atributos Basicos
     @Basic
-    String apellido;
-    String nombre;
-    String email;
-    String nro_tarjeta;
+    private String apellido;
+    private String nombre;
+    private String email;
+    private String nro_tarjeta;
 
     /**
      * Constructor Vacio

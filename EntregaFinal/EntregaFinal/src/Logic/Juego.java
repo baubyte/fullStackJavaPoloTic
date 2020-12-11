@@ -19,19 +19,19 @@ public class Juego implements Serializable {
     //Atributos Principal
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    int id;
+    private int id;
     @OneToMany
-    List<Empleado> empleados;
+    private List<Empleado> empleados;
     @OneToMany
-    List<HorarioJuego> horarios;
+    private List<HorarioJuego> horarios;
     @OneToMany(mappedBy = "juego")
-    List<Entrada> entradas;
+    private List<Entrada> entradas;
     //Atributos Basicos
     @Basic
-    String nombre;
-    String descripcion;
-    int capacidad;
-    int edad_minima;
+    private String nombre;
+    private String descripcion;
+    private int capacidad;
+    private int edad_minima;
 
     /**
      * Constructor Vacio

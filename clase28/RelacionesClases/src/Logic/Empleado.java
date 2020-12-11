@@ -16,7 +16,7 @@ import javax.persistence.OneToOne;
 public class Empleado implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     @Basic
     String dni;

@@ -20,15 +20,15 @@ public class Entrada implements Serializable {
     //Atributos Principales
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    int id;
+    private int id;
     @ManyToOne
-    Cliente cliente;
+    private Cliente cliente;
     @ManyToOne
-    Juego juego;
+    private Juego juego;
     //Atributos Basicos
     @Basic
-    Date fecha;
-    Time hora;
+    private Date fecha;
+    private Time hora;
 
     /**
      * Constructor Vacio

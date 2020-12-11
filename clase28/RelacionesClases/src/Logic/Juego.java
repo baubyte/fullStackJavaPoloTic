@@ -18,13 +18,13 @@ import javax.persistence.OneToMany;
 public class Juego {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
      @Basic
     String nombre;
     int capacidad;
     int edad_minima;
-    @OneToMany
+    @OneToMany(mappedBy = "juego")
     List<Empleado> empleados ;
 
     public Juego() {

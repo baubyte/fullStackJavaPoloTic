@@ -18,17 +18,17 @@ public class Empleado implements Serializable {
     //Atributos Principales
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    int id;
+    private int id;
     @OneToOne
-    Usuario usuario;
+   private  Usuario usuario;
     //Atributos Basicos
     @Basic
-    String dni;
-    String apellido;
-    String nombre;
-    String telefono;
-    String direccion;
-    String email;
+    private String dni;
+    private String apellido;
+    private String nombre;
+    private String telefono;
+    private String direccion;
+    private String email;
 
     /**
      * Constructor Vacio

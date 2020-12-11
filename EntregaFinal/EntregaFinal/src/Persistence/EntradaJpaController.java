@@ -9,6 +9,7 @@ import Logic.Cliente;
 import Logic.Entrada;
 import Logic.Juego;
 import Persistence.exceptions.NonexistentEntityException;
+import java.sql.Time;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -197,5 +198,16 @@ public class EntradaJpaController implements Serializable {
             em.close();
         }
     }
-
+    public int getEntradaCount(Time horaEntrada) {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            Root<Entrada> rt = cq.from(Entrada.class);
+            cq.select(em.getCriteriaBuilder().count(rt)).where(em.getCriteriaBuilder().equal(rt.get("hora"), horaEntrada));
+            Query q = em.createQuery(cq);
+            return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
+    }
 }

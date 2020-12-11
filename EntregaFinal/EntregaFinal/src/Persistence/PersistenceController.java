@@ -3,9 +3,12 @@ package Persistence;
 import Logic.Cliente;
 import Logic.Empleado;
 import Logic.Entrada;
+import Logic.HorarioJuego;
 import Logic.Juego;
+import Logic.Rol;
 import Logic.Usuario;
 import Persistence.exceptions.NonexistentEntityException;
+import java.sql.Time;
 import java.util.List;
 
 /**
@@ -208,11 +211,208 @@ public class PersistenceController {
 
     /**
      * Cuenta todas las Entradas
+     *
      * @return totalEntradas
      */
     public int contarEntradas() {
         int totalEntradas = entradaJPA.getEntradaCount();
         return totalEntradas;
+    }
+
+    /**
+     * Cuenta todas las Entradas por un Horario especifico (aplicamos
+     * sebrecarga)
+     *
+     * @param horaEntrada
+     * @return totalEntradas
+     */
+    public int contarEntradas(Time horaEntrada) {
+        int totalEntradas = entradaJPA.getEntradaCount(horaEntrada);
+        return totalEntradas;
+    }
+
+    /*---------------------------------- Metodos de la Entidad HorarioJuego ---------------------------------------------*/
+    /**
+     * Crea un Horario para un Juego
+     *
+     * @param horarioJuego
+     */
+    public void crearHorarioJuedo(HorarioJuego horarioJuego) {
+        horarioJuegoJPA.create(horarioJuego);
+
+    }
+
+    /**
+     * Edita un Horario de un Juego
+     *
+     * @param horarioJuego
+     * @throws java.lang.Exception
+     */
+    public void editarHorarioJuego(HorarioJuego horarioJuego) throws Exception {
+        horarioJuegoJPA.edit(horarioJuego);
+    }
+
+    /**
+     * Borrar un Horario de un Juego
+     *
+     * @param idHorarioJuego
+     * @throws Persistence.exceptions.NonexistentEntityException
+     */
+    public void borrarHorarioJuego(int idHorarioJuego) throws NonexistentEntityException {
+        horarioJuegoJPA.destroy(idHorarioJuego);
+    }
+
+    /**
+     * Obtiene todos los Horarios de los Juegos
+     *
+     * @return horarioJuegos
+     */
+    public List<HorarioJuego> obtenerHorarioJuegos() {
+        List<HorarioJuego> horarioJuegos = horarioJuegoJPA.findHorarioJuegoEntities();
+        return horarioJuegos;
+    }
+
+    /**
+     * Busca un Horario de Juego por id
+     *
+     * @param idHorarioJuego
+     * @return horarioJuego
+     */
+    public HorarioJuego buscarHorarioJuego(int idHorarioJuego) {
+        HorarioJuego horarioJuego = horarioJuegoJPA.findHorarioJuego(idHorarioJuego);
+        return horarioJuego;
+    }
+
+    /**
+     * Cuenta todos los Horario de los Juegos
+     *
+     * @return totalHorarioJuegos
+     */
+    public int contarHorarioJuegos() {
+        int totalHorarioJuegos = horarioJuegoJPA.getHorarioJuegoCount();
+        return totalHorarioJuegos;
+    }
+
+    /*---------------------------------- Metodos de la Entidad Juego ---------------------------------------------*/
+    /**
+     * Crea un Juego
+     *
+     * @param juego
+     */
+    public void crearJuego(Juego juego) {
+        juegoJPA.create(juego);
+    }
+
+    /**
+     * Edita un Juego
+     *
+     * @param juego
+     * @throws java.lang.Exception
+     */
+    public void editarJuego(Juego juego) throws Exception {
+        juegoJPA.edit(juego);
+    }
+
+    /**
+     * Borra un Juego por el id
+     *
+     * @param idJuego
+     * @throws Persistence.exceptions.NonexistentEntityException
+     */
+    public void borrarJuego(int idJuego) throws NonexistentEntityException {
+        juegoJPA.destroy(idJuego);
+    }
+
+    /**
+     * Obtener todos los Juegos
+     *
+     * @return juegos
+     */
+    public List<Juego> obtenerJuegos() {
+        List<Juego> juegos = juegoJPA.findJuegoEntities();
+        return juegos;
+    }
+
+    /**
+     * Busca un Juego por id
+     *
+     * @param idJuego
+     * @return juego
+     */
+    public Juego buscarJuego(int idJuego) {
+        Juego juego = juegoJPA.findJuego(idJuego);
+        return juego;
+    }
+
+    /**
+     * Cuenta todos los Juegos Disponibles
+     *
+     * @return totalJuegos
+     */
+    public int contarJuegos() {
+        int totalJuegos = juegoJPA.getJuegoCount();
+        return totalJuegos;
+    }
+
+    /*---------------------------------- Metodos de la Entidad Rol ---------------------------------------------*/
+    /**
+     * Crea un Rol para asignar a los Usuarios
+     *
+     * @param rol
+     */
+    public void crearRol(Rol rol) {
+        rolJPA.create(rol);
+    }
+
+    /**
+     * Editar un Rol
+     *
+     * @param rol
+     * @throws java.lang.Exception
+     */
+    public void editarRol(Rol rol) throws Exception {
+        rolJPA.edit(rol);
+    }
+
+    /**
+     * Borra un Rol por di
+     *
+     * @param idRol
+     * @throws Persistence.exceptions.NonexistentEntityException
+     */
+    public void borrarRol(int idRol) throws NonexistentEntityException {
+        rolJPA.destroy(idRol);
+    }
+
+    /**
+     * Obtiene todos los Roles disponibles
+     *
+     * @return roles
+     */
+    public List<Rol> obtenerRoles() {
+        List<Rol> roles = rolJPA.findRolEntities();
+        return roles;
+    }
+
+    /**
+     * Busca un Rol por el id
+     *
+     * @param idRol
+     * @return rol
+     */
+    public Rol buscarRol(int idRol) {
+        Rol rol = rolJPA.findRol(idRol);
+        return rol;
+    }
+
+    /**
+     * Cuenta todos los Roles Disponibles
+     *
+     * @return totalRoles
+     */
+    public int contarRoles() {
+        int totalRoles = rolJPA.getRolCount();
+        return totalRoles;
     }
 
     /*---------------------------------- Metodos de la Entidad Usuario ---------------------------------------------*/
@@ -236,8 +436,43 @@ public class PersistenceController {
         usuarioJPA.edit(usuario);
     }
 
-    public void crearJuego(Juego juego) {
+    /**
+     * Borra un Usuario por id
+     *
+     * @param idUsuario
+     * @throws Persistence.exceptions.NonexistentEntityException
+     */
+    public void borrarUsuario(int idUsuario) throws NonexistentEntityException {
+        usuarioJPA.destroy(idUsuario);
+    }
 
-        juegoJPA.create(juego);
+    /**
+     * Obtiene todos los Usuarios
+     *
+     * @return usuarios
+     */
+    public List<Usuario> obtenerUsuarios() {
+        List<Usuario> usuarios = usuarioJPA.findUsuarioEntities();
+        return usuarios;
+    }
+
+    /**
+     * Buscar un Usuario por id
+     *
+     * @param idUsuario
+     * @return usuario
+     */
+    public Usuario buscarUsuario(int idUsuario) {
+        Usuario usuario = usuarioJPA.findUsuario(idUsuario);
+        return usuario;
+    }
+
+    /**
+     * Cuneta todos los Usuarios
+     * @return totalUsuarios
+     */
+    public int contarUsuarios() {
+        int totalUsuarios = usuarioJPA.getUsuarioCount();
+        return totalUsuarios;
     }
 }

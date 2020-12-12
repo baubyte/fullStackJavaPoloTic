@@ -7,16 +7,17 @@
 package Persistence;
 
 import Logic.Empleado;
-import Persistence.exceptions.NonexistentEntityException;
 import java.io.Serializable;
+import javax.persistence.Query;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import Logic.Juego;
+import Persistence.exceptions.NonexistentEntityException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
-import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 
 /**
  * 
@@ -28,15 +29,11 @@ public class EmpleadoJpaController implements Serializable {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
-
-    public EmpleadoJpaController() {
-        
-         //Entity Manager Factory
+    
+        public EmpleadoJpaController() {
+                 //Entity Manager Factory
         emf = Persistence.createEntityManagerFactory("RelacinoesClasesPU");
-        
     }
-    
-    
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -47,7 +44,16 @@ public class EmpleadoJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
+            Juego juego = empleado.getJuego();
+            if (juego != null) {
+                juego = em.getReference(juego.getClass(), juego.getId());
+                empleado.setJuego(juego);
+            }
             em.persist(empleado);
+            if (juego != null) {
+                juego.getEmpleados().add(empleado);
+                juego = em.merge(juego);
+            }
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -61,7 +67,22 @@ public class EmpleadoJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
+            Empleado persistentEmpleado = em.find(Empleado.class, empleado.getId());
+            Juego juegoOld = persistentEmpleado.getJuego();
+            Juego juegoNew = empleado.getJuego();
+            if (juegoNew != null) {
+                juegoNew = em.getReference(juegoNew.getClass(), juegoNew.getId());
+                empleado.setJuego(juegoNew);
+            }
             empleado = em.merge(empleado);
+            if (juegoOld != null && !juegoOld.equals(juegoNew)) {
+                juegoOld.getEmpleados().remove(empleado);
+                juegoOld = em.merge(juegoOld);
+            }
+            if (juegoNew != null && !juegoNew.equals(juegoOld)) {
+                juegoNew.getEmpleados().add(empleado);
+                juegoNew = em.merge(juegoNew);
+            }
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
@@ -90,6 +111,11 @@ public class EmpleadoJpaController implements Serializable {
                 empleado.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The empleado with id " + id + " no longer exists.", enfe);
+            }
+            Juego juego = empleado.getJuego();
+            if (juego != null) {
+                juego.getEmpleados().remove(empleado);
+                juego = em.merge(juego);
             }
             em.remove(empleado);
             em.getTransaction().commit();
@@ -139,6 +165,19 @@ public class EmpleadoJpaController implements Serializable {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
             Root<Empleado> rt = cq.from(Empleado.class);
             cq.select(em.getCriteriaBuilder().count(rt));
+            Query q = em.createQuery(cq);
+            return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
+    }
+    
+        public int getEmpleadoCount(int idJuego) {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            Root<Empleado> rt = cq.from(Empleado.class);
+            cq.select(em.getCriteriaBuilder().count(rt)).where(em.getCriteriaBuilder().equal(rt.get("juego").get("id"), idJuego));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
         } finally {

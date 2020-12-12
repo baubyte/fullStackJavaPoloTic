@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -27,6 +28,7 @@ public class Entrada implements Serializable {
     private Juego juego;
     //Atributos Basicos
     @Basic
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fecha;
     private Time hora;
 

@@ -30,10 +30,9 @@ public class JuegoJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 
     public JuegoJpaController() {
-        //Entity Manager Factory
+                 //Entity Manager Factory
         emf = Persistence.createEntityManagerFactory("RelacinoesClasesPU");
     }
-    
     
 
     public EntityManager getEntityManager() {

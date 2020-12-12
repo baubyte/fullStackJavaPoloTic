@@ -33,6 +33,16 @@ public class PersistenceController {
         empleadoJPA.create(empleado);
     }
 
+    public int contarEmpleado() {
+
+        return empleadoJPA.getEmpleadoCount();
+    }
+
+    public int contarEmpleado(int idJuego) {
+
+        return empleadoJPA.getEmpleadoCount(idJuego);
+    }
+
     public void crearJuego(Juego juego) {
 
         juegoJPA.create(juego);

@@ -24,6 +24,14 @@ class Controller {
         persistenceController.crearEmpleado(empleado);
     }
 
+    public int contarEmpleado() {
+        return persistenceController.contarEmpleado();
+    }
+
+    public int contarEmpleado(int idJuego) {
+        return persistenceController.contarEmpleado(idJuego);
+    }
+
     public void crearJuego(Juego juego) {
         persistenceController.crearJuego(juego);
     }

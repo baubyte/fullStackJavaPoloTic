@@ -15,7 +15,7 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        Usuario usuario = new Usuario();
+       /* Usuario usuario = new Usuario();
         usuario.setUsuario("baubyte");
         usuario.setPassword("123456");
         
@@ -56,7 +56,10 @@ public class Main {
                 
         juego.setEmpleados(empleados);
         
-        controller.crearJuego(juego);
+        controller.crearJuego(juego);*/
+       
+       Controller controller = new Controller();
+        System.out.println(controller.contarEmpleado(1));
         
         
     }

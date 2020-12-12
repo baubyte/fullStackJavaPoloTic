@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 /**
@@ -25,18 +26,24 @@ public class Empleado implements Serializable {
     String cargo;
     @OneToOne
     Usuario usuario;
+    @ManyToOne
+    Juego juego;
 
     public Empleado() {
     }
 
-    public Empleado(int id, String dni, String nombre, String apellido, String cargo, Usuario usuario) {
+    public Empleado(int id, String dni, String nombre, String apellido, String cargo, Usuario usuario, Juego juego) {
         this.id = id;
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.cargo = cargo;
         this.usuario = usuario;
+        this.juego = juego;
     }
+
+
+
 
 
 
@@ -87,6 +94,16 @@ public class Empleado implements Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+
+    public Juego getJuego() {
+        return juego;
+    }
+
+    public void setJuego(Juego juego) {
+        this.juego = juego;
+    }
+
+
 
     
 }

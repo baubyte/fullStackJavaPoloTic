@@ -2,14 +2,14 @@
 
 <ClassDiagram name="Logic">
   <ClassDiagramComponents>
-    <Class name="Cliente" package="Logic" visibility="public" xPosition="573.0" yPosition="745.0">
+    <Class name="Cliente" package="Logic" visibility="public" xPosition="20.0" yPosition="20.0">
       <Fields>
-        <Field name="id" type="int" visibility="package"/>
-        <Field name="entradas" type="List&lt;Entrada&gt;" visibility="package"/>
-        <Field name="apellido" type="String" visibility="package"/>
-        <Field name="nombre" type="String" visibility="package"/>
-        <Field name="email" type="String" visibility="package"/>
-        <Field name="nro_tarjeta" type="String" visibility="package"/>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="entradas" type="List&lt;Entrada&gt;" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="nro_tarjeta" type="String" visibility="private"/>
       </Fields>
       <Constructors>
         <Constructor visibility="public"/>
@@ -49,16 +49,16 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Empleado" package="Logic" visibility="public" xPosition="490.0" yPosition="20.0">
+    <Class name="Empleado" package="Logic" visibility="public" xPosition="946.0" yPosition="839.0">
       <Fields>
-        <Field name="id" type="int" visibility="package"/>
-        <Field name="usuario" type="Usuario" visibility="package"/>
-        <Field name="dni" type="String" visibility="package"/>
-        <Field name="apellido" type="String" visibility="package"/>
-        <Field name="nombre" type="String" visibility="package"/>
-        <Field name="telefono" type="String" visibility="package"/>
-        <Field name="direccion" type="String" visibility="package"/>
-        <Field name="email" type="String" visibility="package"/>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="usuario" type="Usuario" visibility="private"/>
+        <Field name="dni" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="telefono" type="String" visibility="private"/>
+        <Field name="direccion" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
       </Fields>
       <Constructors>
         <Constructor visibility="public"/>
@@ -108,20 +108,20 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Entrada" package="Logic" visibility="public" xPosition="1608.0" yPosition="745.0">
+    <Class name="Entrada" package="Logic" visibility="public" xPosition="113.0" yPosition="773.0">
       <Fields>
-        <Field name="id" type="int" visibility="package"/>
-        <Field name="cliente" type="Cliente" visibility="package"/>
-        <Field name="juegos" type="Juego" visibility="package"/>
-        <Field name="fecha" type="Date" visibility="package"/>
-        <Field name="hora" type="Time" visibility="package"/>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="cliente" type="Cliente" visibility="private"/>
+        <Field name="juego" type="Juego" visibility="private"/>
+        <Field name="fecha" type="Date" visibility="private"/>
+        <Field name="hora" type="Time" visibility="private"/>
       </Fields>
       <Constructors>
         <Constructor visibility="public"/>
         <Constructor visibility="public">
           <Argument type="int" name="id"/>
           <Argument type="Cliente" name="cliente"/>
-          <Argument type="Juego" name="juegos"/>
+          <Argument type="Juego" name="juego"/>
           <Argument type="Date" name="fecha"/>
           <Argument type="Time" name="hora"/>
         </Constructor>
@@ -143,18 +143,18 @@
         <Method name="setCliente" returnType="void" visibility="public">
           <Argument type="Cliente" name="cliente"/>
         </Method>
-        <Method name="getJuegos" returnType="Juego" visibility="public"/>
-        <Method name="setJuegos" returnType="void" visibility="public">
-          <Argument type="Juego" name="juegos"/>
+        <Method name="getJuego" returnType="Juego" visibility="public"/>
+        <Method name="setJuego" returnType="void" visibility="public">
+          <Argument type="Juego" name="juego"/>
         </Method>
       </Methods>
     </Class>
-    <Class name="HorarioJuego" package="Logic" visibility="public" xPosition="2520.0" yPosition="20.0">
+    <Class name="HorarioJuego" package="Logic" visibility="public" xPosition="2049.0" yPosition="20.0">
       <Fields>
-        <Field name="id" type="int" visibility="package"/>
-        <Field name="hora_desde" type="Time" visibility="package"/>
-        <Field name="hora_hasta" type="Time" visibility="package"/>
-        <Field name="descripcion" type="String" visibility="package"/>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="hora_desde" type="Time" visibility="private"/>
+        <Field name="hora_hasta" type="Time" visibility="private"/>
+        <Field name="descripcion" type="String" visibility="private"/>
       </Fields>
       <Constructors>
         <Constructor visibility="public"/>
@@ -184,16 +184,16 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Juego" package="Logic" visibility="public" xPosition="1344.0" yPosition="20.0">
+    <Class name="Juego" package="Logic" visibility="public" xPosition="828.0" yPosition="20.0">
       <Fields>
-        <Field name="id" type="int" visibility="package"/>
-        <Field name="empleados" type="List&lt;Empleado&gt;" visibility="package"/>
-        <Field name="horarios" type="List&lt;HorarioJuego&gt;" visibility="package"/>
-        <Field name="entradas" type="List&lt;Entrada&gt;" visibility="package"/>
-        <Field name="nombre" type="String" visibility="package"/>
-        <Field name="descripcion" type="String" visibility="package"/>
-        <Field name="capacidad" type="int" visibility="package"/>
-        <Field name="edad_minima" type="int" visibility="package"/>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="empleados" type="List&lt;Empleado&gt;" visibility="private"/>
+        <Field name="horarios" type="List&lt;HorarioJuego&gt;" visibility="private"/>
+        <Field name="entradas" type="List&lt;Entrada&gt;" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="descripcion" type="String" visibility="private"/>
+        <Field name="capacidad" type="int" visibility="private"/>
+        <Field name="edad_minima" type="int" visibility="private"/>
       </Fields>
       <Constructors>
         <Constructor visibility="public"/>
@@ -243,11 +243,11 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Rol" package="Logic" visibility="public" xPosition="47.0" yPosition="20.0">
+    <Class name="Rol" package="Logic" visibility="public" xPosition="2590.0" yPosition="839.0">
       <Fields>
-        <Field name="id" type="int" visibility="package"/>
-        <Field name="nombre" type="String" visibility="package"/>
-        <Field name="descripcion" type="String" visibility="package"/>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="descripcion" type="String" visibility="private"/>
       </Fields>
       <Constructors>
         <Constructor visibility="public"/>
@@ -272,12 +272,12 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Usuario" package="Logic" visibility="public" xPosition="19.0" yPosition="396.0">
+    <Class name="Usuario" package="Logic" visibility="public" xPosition="1914.0" yPosition="839.0">
       <Fields>
-        <Field name="id" type="int" visibility="package"/>
-        <Field name="usuario" type="String" visibility="package"/>
-        <Field name="password" type="String" visibility="package"/>
-        <Field name="rol" type="Rol" visibility="package"/>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="usuario" type="String" visibility="private"/>
+        <Field name="password" type="String" visibility="private"/>
+        <Field name="rol" type="Rol" visibility="private"/>
       </Fields>
       <Constructors>
         <Constructor visibility="public"/>
@@ -309,20 +309,20 @@
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="usuario" source="Logic.Empleado" target="Logic.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="horarios" source="Logic.Juego" target="Logic.HorarioJuego" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;HorarioJuego&gt;"/>
-    <UseRelation source="Logic.Entrada" target="Logic.Juego" sourceCardinality="1..1" targetCardinality="1..1"/>
     <UseRelation source="Logic.Juego" target="Logic.Entrada" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="juegos" source="Logic.Entrada" target="Logic.Juego" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="juego" source="Logic.Entrada" target="Logic.Juego" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <HasRelation name="cliente" source="Logic.Entrada" target="Logic.Cliente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="usuario" source="Logic.Empleado" target="Logic.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Logic.Entrada" target="Logic.Juego" sourceCardinality="1..1" targetCardinality="1..1"/>
     <UseRelation source="Logic.Cliente" target="Logic.Entrada" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="Logic.Juego" target="Logic.Empleado" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="Logic.Empleado" target="Logic.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="Logic.Entrada" target="Logic.Cliente" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="entradas" source="Logic.Cliente" target="Logic.Entrada" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Entrada&gt;"/>
-    <HasRelation name="entradas" source="Logic.Juego" target="Logic.Entrada" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Entrada&gt;"/>
     <HasRelation name="rol" source="Logic.Usuario" target="Logic.Rol" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="empleados" source="Logic.Juego" target="Logic.Empleado" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Empleado&gt;"/>
     <UseRelation source="Logic.Usuario" target="Logic.Rol" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Logic.Entrada" target="Logic.Cliente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="entradas" source="Logic.Juego" target="Logic.Entrada" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Entrada&gt;"/>
+    <HasRelation name="entradas" source="Logic.Cliente" target="Logic.Entrada" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Entrada&gt;"/>
+    <HasRelation name="empleados" source="Logic.Juego" target="Logic.Empleado" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Empleado&gt;"/>
+    <UseRelation source="Logic.Empleado" target="Logic.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="horarios" source="Logic.Juego" target="Logic.HorarioJuego" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;HorarioJuego&gt;"/>
+    <UseRelation source="Logic.Juego" target="Logic.Empleado" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>

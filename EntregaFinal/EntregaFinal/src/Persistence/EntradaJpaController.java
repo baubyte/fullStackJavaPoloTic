@@ -31,7 +31,7 @@ public class EntradaJpaController implements Serializable {
      */
     public EntradaJpaController() {
         //Entity Manager Factory
-        emf = Persistence.createEntityManagerFactory("RelacinoesClasesPU");
+        emf = Persistence.createEntityManagerFactory("EntregaFinalPU");
     }
 
     public EntityManager getEntityManager() {

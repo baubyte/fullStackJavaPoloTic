@@ -34,7 +34,7 @@ public class HorarioJuegoJpaController implements Serializable {
     public HorarioJuegoJpaController() {
 
         //Entity Manager Factory
-        emf = Persistence.createEntityManagerFactory("RelacinoesClasesPU");
+        emf = Persistence.createEntityManagerFactory("EntregaFinalPU");
     }
 
     public EntityManager getEntityManager() {

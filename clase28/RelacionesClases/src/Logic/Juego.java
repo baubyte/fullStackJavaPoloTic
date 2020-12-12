@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
  */
 
 @Entity
-public class Juego {
+public class Juego implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
